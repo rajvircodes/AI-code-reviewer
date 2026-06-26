@@ -2,15 +2,15 @@ const aiService = require("../services/ai.service");
 
 const getReview = async (req, res) => {
   try {
-    const prompt = req.query.prompt;
-
-    if (!prompt) {
+    const code = req.body.code;
+    if (!code) {
       return res.status(400).json({
-        message: "Please provide prompt",
+        message: "Please provide code",
         success: false,
       });
     }
-    const response = await aiService(prompt);
+
+    const response = await aiService(code);
     res.send(response);
   } catch (error) {
     res.status(500).json({
