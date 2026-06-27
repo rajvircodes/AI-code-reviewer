@@ -1,7 +1,6 @@
 const { GoogleGenAI } = require("@google/genai");
 
 const ai = new GoogleGenAI({ apiKey: process.env.GOOGLE_GEMINI_KEY });
-console.log(process.env.GOOGLE_GEMINI_KEY);
 
 async function generateContent(code) {
   try {
